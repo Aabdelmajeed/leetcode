@@ -5,7 +5,8 @@ class Solution {
         int n = nums.length;
         
         for(int i = 0; i < n - 2; i++) {
-                 int l = i + 1, r = n - 1;
+            if(i == 0 || (i > 0 && nums[i] != nums[i - 1])) {
+                int l = i + 1, r = n - 1;
                 
                 while(l < r) {
                     if(nums[l] + nums[r] == -1*nums[i]) 
@@ -14,7 +15,8 @@ class Solution {
                     if(nums[l] + nums[r] < -1*nums[i]) l++;
                     else r--;
                 }
-         }
+            }
+        }
         
         return new ArrayList<>(set);
      }
