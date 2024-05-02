@@ -9,7 +9,6 @@ class Foo {
 
     public void first(Runnable printFirst) throws InterruptedException {
            printFirst.run();
-
         first.incrementAndGet();
 
         
