@@ -14,15 +14,15 @@ class Solution {
                 }
                 current++;
                 start++;
-            }else if(nums[current]==1){
-                current++;
-            }else {
-              if(nums[end] != 2){
+            }else if(nums[current] == 2){
+                if(nums[end] != 2){
                      int temp = nums[end];
                     nums[end] = nums[current];
                     nums[current] = temp;
                 }
                  end--;
+            }else{
+                current++;
             }
         }
 
