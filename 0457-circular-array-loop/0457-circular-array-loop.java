@@ -25,7 +25,7 @@ private int getNextIndex(int currentIndex, int[] nums) {
     int nextIndex = (currentIndex + nums[currentIndex]) % nums.length;
      if (nextIndex < 0)
         nextIndex += nums.length;
-     if (nextIndex == currentIndex || nums[nextIndex] * nums[currentIndex] <= 0)
+     if (nextIndex == currentIndex || nums[nextIndex] * nums[currentIndex] < 0)
         return -1;
     return nextIndex;
 }
