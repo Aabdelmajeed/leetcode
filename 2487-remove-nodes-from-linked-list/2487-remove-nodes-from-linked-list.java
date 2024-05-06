@@ -10,30 +10,15 @@
  */
 class Solution {
     public ListNode removeNodes(ListNode head) {
-        ListNode prev = null;
-       Stack<ListNode> stack = new Stack<>();
-        ListNode current = head;
-        int maximum = 0;
-        while(current != null){
-           stack.push(current);
-            current = current.next;
+        if(head == null || head.next == null)
+            return head;
         
-        }
+        ListNode nextNode = removeNodes(head.next);
         
-        current = stack.pop();
-          maximum = current.val;
-        ListNode resultList = new ListNode(maximum);   
+        if(nextNode.val > head.val)
+            return nextNode;
         
-        while(!stack.isEmpty()){
-             current = stack.pop();
-            if(current.val < maximum) continue;
-            
-            ListNode newNode = new ListNode(current.val);
-            newNode.next = resultList;
-            resultList = newNode;
-            maximum = current.val;
-        }
-        
-        return resultList;
+        head.next =nextNode;
+        return head;
     }
 }
