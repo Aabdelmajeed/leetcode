@@ -31,20 +31,17 @@ class Solution {
         
         if(root == null)
             return ;
+  
         if(root.left != null && root.left.val == target){
             if(root.left.right == null && root.left.left == null){
                 root.left = null;
                 removedCounter++;
-            }else{
-                removeLeaf(root.left , target);
             }
         }
         if(root.right != null && root.right.val == target){
             if(root.right.right == null && root.right.left == null){
                removedCounter++;
                 root.right = null;
-            }else{
-                removeLeaf(root.left , target);
             }
         }
        removeLeaf(root.right , target);
